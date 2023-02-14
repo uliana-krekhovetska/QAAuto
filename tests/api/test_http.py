@@ -1,5 +1,5 @@
 import pytest
-import request
+import requests
 
 @pytest.mark.http
 def test_first_request():
@@ -8,7 +8,7 @@ def test_first_request():
 
 @pytest.mark.http
 def test_second_request():
-    r = request.get('https://api.github.com/users/defunkt')
+    r = requests.get('https://api.github.com/users/defunkt')
     body = r.json()
     headers = r.headers
     
@@ -19,5 +19,5 @@ def test_second_request():
 
 @pytest.mark.http
 def test_status_code_request():
-    r = request.get('https://api.github.com/users/sergii_butenko')
+    r = requests.get('https://api.github.com/users/sergii_butenko')
     assert r.status_code == 404
